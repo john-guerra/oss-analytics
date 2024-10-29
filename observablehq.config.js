@@ -1,75 +1,92 @@
-import {full as MarkdownItEmoji} from "markdown-it-emoji";
+import { full as MarkdownItEmoji } from "markdown-it-emoji";
 
 export const packages = [
   ...[
-    "framework",
-    "plot",
-    "inputs",
-    "runtime",
-    "stdlib",
-    "inspector",
-    "parser",
-    "htl"
+    "navio",
+    // "force-in-a-box",
+    // "netclustering",
+    // "navio-jupyter",
+    "d3-force-boundary",
+    "multi-auto-select",
+    "vega-selected",
+    // "reactive-widget-helper",
   ].map((name) => ({
-    name: name === "htl" ? name : `@observablehq/${name}`,
-    repo: `observablehq/${name}`,
-    group: "Observable"
+    name: name,
+    repo: `john-guerra/${name}`,
+    group: "John Alexis Guerra Gomez",
   })),
-  ...[
-    "d3",
-    "d3-array",
-    "d3-axis",
-    "d3-brush",
-    "d3-chord",
-    "d3-color",
-    "d3-contour",
-    "d3-delaunay",
-    "d3-dispatch",
-    "d3-drag",
-    "d3-dsv",
-    "d3-ease",
-    "d3-fetch",
-    "d3-force",
-    "d3-format",
-    "d3-geo",
-    "d3-hierarchy",
-    "d3-interpolate",
-    "d3-path",
-    "d3-polygon",
-    "d3-quadtree",
-    "d3-random",
-    "d3-scale",
-    "d3-scale-chromatic",
-    "d3-selection",
-    "d3-shape",
-    "d3-time",
-    "d3-time-format",
-    "d3-timer",
-    "d3-transition",
-    "d3-zoom"
-  ].map((name) => ({
-    name,
-    repo: `d3/${name}`,
-    group: "D3 (core)"
-  })),
-  ...[
-    "d3-collection",
-    "d3-geo-polygon",
-    "d3-geo-projection",
-    "d3-hexbin",
-    "d3-hsv",
-    "d3-queue",
-    "d3-request",
-    "d3-require",
-    "d3-sankey",
-    "d3-selection-multi",
-    "d3-tile",
-    "d3-voronoi"
-  ].map((name) => ({
-    name,
-    repo: `d3/${name}`,
-    group: "D3 (non-core)"
-  }))
+  {
+    name: "force-in-a-box",
+    repo: "john-guerra/forceInABox",
+    group: "John Alexis Guerra Gomez",
+  },
+  {
+    name: "netclustering",
+    repo: "john-guerra/netClusteringJs",
+    group: "John Alexis Guerra Gomez",
+  },
+  {
+    name: "reactive-widget-helper",
+    repo: "john-guerra/reactive-widget",
+    group: "John Alexis Guerra Gomez",
+  },
+  
+  
+  // ...[
+  //   "d3",
+  //   "d3-array",
+  //   "d3-axis",
+  //   "d3-brush",
+  //   "d3-chord",
+  //   "d3-color",
+  //   "d3-contour",
+  //   "d3-delaunay",
+  //   "d3-dispatch",
+  //   "d3-drag",
+  //   "d3-dsv",
+  //   "d3-ease",
+  //   "d3-fetch",
+  //   "d3-force",
+  //   "d3-format",
+  //   "d3-geo",
+  //   "d3-hierarchy",
+  //   "d3-interpolate",
+  //   "d3-path",
+  //   "d3-polygon",
+  //   "d3-quadtree",
+  //   "d3-random",
+  //   "d3-scale",
+  //   "d3-scale-chromatic",
+  //   "d3-selection",
+  //   "d3-shape",
+  //   "d3-time",
+  //   "d3-time-format",
+  //   "d3-timer",
+  //   "d3-transition",
+  //   "d3-zoom"
+  // ].map((name) => ({
+  //   name,
+  //   repo: `d3/${name}`,
+  //   group: "D3 (core)"
+  // })),
+  // ...[
+  //   "d3-collection",
+  //   "d3-geo-polygon",
+  //   "d3-geo-projection",
+  //   "d3-hexbin",
+  //   "d3-hsv",
+  //   "d3-queue",
+  //   "d3-request",
+  //   "d3-require",
+  //   "d3-sankey",
+  //   "d3-selection-multi",
+  //   "d3-tile",
+  //   "d3-voronoi"
+  // ].map((name) => ({
+  //   name,
+  //   repo: `d3/${name}`,
+  //   group: "D3 (non-core)"
+  // }))
 ];
 
 export default {
@@ -79,10 +96,12 @@ export default {
   style: "style.css",
   markdownIt: (md) => md.use(MarkdownItEmoji),
   globalStylesheets: [
-    "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap"
+    "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Spline+Sans+Mono:ital,wght@0,300..700;1,300..700&display=swap",
   ],
   toc: false,
-  header: ({path}) => `<div style="display: flex; flex-grow: 1; align-items: center; justify-content: space-between; white-space: nowrap;">
+  header: ({
+    path,
+  }) => `<div style="display: flex; flex-grow: 1; align-items: center; justify-content: space-between; white-space: nowrap;">
     <div>
       <a href="/" class="hide-if-sidebar" style="display: flex; align-items: center; gap: 0.5rem;">
         <svg width="22" height="22" viewBox="0 0 21.92930030822754 22.68549919128418" fill="currentColor" style="align-self: center;">
@@ -99,10 +118,13 @@ export default {
     </span>
   </div>`,
   footer: ((date = new Date()) =>
-    `© ${date.getUTCFullYear()} Observable, Inc. Last updated <a title="${date.toISOString()}">${date.toLocaleDateString("en-US", {month: "short", day: "numeric"})}</a>.`)(),
-  dynamicPaths: packages.flatMap(({name, repo}) => [
+    `© ${date.getUTCFullYear()} Observable, Inc. Last updated <a title="${date.toISOString()}">${date.toLocaleDateString(
+      "en-US",
+      { month: "short", day: "numeric" }
+    )}</a>.`)(),
+  dynamicPaths: packages.flatMap(({ name, repo }) => [
     `/@${repo}`,
     `/${name}/downloads-dark.svg`,
-    `/${name}/downloads.svg`
-  ])
+    `/${name}/downloads.svg`,
+  ]),
 };

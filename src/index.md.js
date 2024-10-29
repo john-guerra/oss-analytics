@@ -18,9 +18,9 @@ for (const p of packages) {
   p.npmInfo = await fetchNpm(`https://registry.npmjs.org/${encodeURIComponent(npmPackage)}`);
 }
 
-process.stdout.write(`# Open-source analytics
+process.stdout.write(`# John Guerra's Open-source analytics
 
-This dashboard shows [Observable’s open-source projects](https://github.com/observablehq) and [D3](https://github.com/d3). This dashboard is itself [open-source](https://github.com/observablehq/oss-analytics/) and built with [Observable Framework](https://observablehq.com/framework/) and updated daily on [Observable Cloud](https://observablehq.com/platform/cloud); fork it to visualize your own projects!
+This dashboard shows [John Alexis Guerra Gomez open-source projects](https://github.com/john-guerra) using Observable's [open-source dashboard](https://github.com/observablehq/oss-analytics/) and built with [Observable Framework](https://observablehq.com/framework/) and updated daily on [Observable Cloud](https://observablehq.com/platform/cloud).
 
 <style type="text/css">
 
